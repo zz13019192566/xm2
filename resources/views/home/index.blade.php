@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel--lamp214前台首页
+                    Laravel-前台首页
                 </div>
 
                 <div class="links">

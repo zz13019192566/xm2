@@ -228,4 +228,6 @@ return [
 
     ],
 
+    'web_name'=>'lamp214',
+
 ];
