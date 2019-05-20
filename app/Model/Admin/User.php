@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     //
-    protected $table = 'user';
+    protected $table = 'admin';
 
     protected $primaryKey = 'id';
 
@@ -17,7 +17,7 @@ class User extends Model
     
     protected $guarded = [];
 
-    public function uinfo(){
-    	return $this->hasOne('App\Model\Admin\Userinfo','uid','id');
-    }
+    // public function uinfo(){
+    // 	return $this->hasOne('App\Model\Admin\Userinfo','uid','id');
+    // }
 }

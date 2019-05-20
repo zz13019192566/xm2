@@ -1,4 +1,25 @@
 
+<style>
+.mws-form-message.error {
+    background-color: #ffcbca;
+    background-image: url(../images/core/message-error.png);
+    background-repeat:no-repeat;
+    border-color: #eb979b;
+    color: #9b4449;
+    line-height: 27px
+}
+</style>
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li style="font-size:12px; margin-left:30px">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,40 +34,36 @@
 	<body>
 		<div class="wrap-container">
 				<form class="layui-form" action="/admin/user" method="post" style="width: 90%;padding-top: 20px;">
-					<div class="layui-form-item">
-						<label class="layui-form-label">菜单分类：</label>
-						<div class="layui-input-block">
-							<select name="power" lay-verify="required">
-								<option value="">权限选择</option>
-								<option value="0">普通管理员</option>
-								<option value="1">超级管理员</option>
-								
-							</select>
-						</div>
-					</div>
+			
 				
 					
 				
 					<div class="layui-form-item">
 						<label class="layui-form-label">用户名 : &nbsp;</label>
 						<div class="layui-input-block">
-							<input type="text" name="uname" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+							<input type="text" name="uname"   placeholder="请输入用户名6-12位非特殊符号组成" autocomplete="off" class="layui-input">
 						</div>
 					</div>
-					
+
+					<div class="layui-form-item">
+						<label class="layui-form-label">手机号 : &nbsp;</label>
+						<div class="layui-input-block">
+							<input type="text" name="tel"   placeholder="请输入正确的手机号码" autocomplete="off" class="layui-input">
+						</div>
+					</div>
 
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码 : &nbsp;</label>
 						<div class="layui-input-block">
-							<input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+							<input type="password" name="password" placeholder="请输入密码8-16位由字母数字下划线组成" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">确认密码 : &nbsp;</label>
 						<div class="layui-input-block">
-							<input type="password" name="password1" required lay-verify="required" placeholder="请再次输入密码已确认" autocomplete="off" class="layui-input">
+							<input type="password" name="password1"  placeholder="请再次输入密码已确认" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					
@@ -60,9 +77,16 @@
 					</div>
 				</form>
 		</div>
-
+		<script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../admin/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		
 	</body>
 
 </html>
+	<script>
+		setTimeout(function(){
+			$('.mws-form-message').slideUp(1500);
+		},3000)
+		
+	</script>
